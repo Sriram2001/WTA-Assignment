@@ -10,7 +10,7 @@ const EmployeeSchema = mongoose.Schema({
   attendance: { type: Number, default: 0 },
   qualityOfWork: { type: Number, default: 0 },
   targetAchievement: { type: Number, default: 0 },
-  remarks: { type: String, default: "" },
+  review: { type: String, default: "" },
 });
 
 module.exports = mongoose.model("Employees", EmployeeSchema);

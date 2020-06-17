@@ -31,10 +31,10 @@ export class ListComponent implements OnInit {
     if (employee.appraised) {
       let res = 0;
       res += employee.attendance;
-      res += employee.performance;
+      res += employee.productivity;
       res += employee.qualityOfWork;
       res += employee.targetAchievement;
-      res = res / 5;
+      res = res / 4;
       return res.toString();
     } else {
       return "Unrated";

@@ -31,6 +31,7 @@ router.post("/", (req, res) => {
   const employee = new Employee({
     name: req.body.name,
     department: req.body.department,
+    email: req.body.email,
     salary: req.body.salary,
   });
 
@@ -68,7 +69,7 @@ router.patch("/:id", async (req, res) => {
           attendance: req.body.attendance,
           qualityOfWork: req.body.qualityOfWork,
           targetAchievement: req.body.targetAchievement,
-          remarks: req.body.remarks,
+          review: req.body.review,
         },
       }
     );
