@@ -1,0 +1,72 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h2>Update Employee Status</h2>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <section class="mat-typography">
+      <h3>{{name}}</h3>
+    </section>
+    <section class="mat-typography">
+      <h4>{{department}}</h4>
+    </section>
+    <section class="mat-typography">
+      <h4>{{salary}}</h4>
+    </section>
+    <section class="mat-typography">
+      <i>{{email}}</i>
+    </section>
+
+    <form [formGroup]="updateForm" class="edit-form">
+      <mat-form-field>
+          <mat-select placeholder="Attendance" formControlName="attendance" #attendance>
+            <mat-option value="1">Really Bad</mat-option>
+            <mat-option value="2">Bad</mat-option>
+            <mat-option value="3">Decent</mat-option>
+            <mat-option value="4">Good</mat-option>
+            <mat-option value="5">Excellent</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <mat-select placeholder="Achievement of Targets" formControlName="targetAchievements" #targetAchievements>
+            <mat-option value="1">Really Bad</mat-option>
+            <mat-option value="2">Bad</mat-option>
+            <mat-option value="3">Decent</mat-option>
+            <mat-option value="4">Good</mat-option>
+            <mat-option value="5">Excellent</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+          <mat-select placeholder="Quality of work" formControlName="qualityOfWork" #qualityOfWork>
+            <mat-option value="1">Really Bad</mat-option>
+            <mat-option value="2">Bad</mat-option>
+            <mat-option value="3">Decent</mat-option>
+            <mat-option value="4">Good</mat-option>
+            <mat-option value="5">Excellent</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br>      
+      <mat-form-field>
+          <mat-select placeholder="Productivity" formControlName="productivity" #productivity>
+            <mat-option value="1">Really Bad</mat-option>
+            <mat-option value="2">Bad</mat-option>
+            <mat-option value="3">Decent</mat-option>
+            <mat-option value="4">Good</mat-option>
+            <mat-option value="5">Excellent</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Review" formControlName="review" #review></textarea>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="updateIssue(review.value, attendance.value, targetAchievements.value,  qualityOfWork.value, productivity.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>

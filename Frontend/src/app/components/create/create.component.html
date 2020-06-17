@@ -1,0 +1,53 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h2>Add Employee</h2>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="createForm" class="create-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Employee Name" formControlName="name" #name>
+        <mat-error *ngIf="createForm.get('name').hasError('required') ">
+          Name is required
+        </mat-error> 
+       
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Employee Department" formControlName="department" #department>
+        <mat-error *ngIf="createForm.get('department').hasError('required') ">
+          Department is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Employee Email" formControlName="email" #email>
+        
+        <mat-error *ngIf="createForm.get('email').invalid ">
+          Invalid email
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Employee Salary" [value]="0" formControlName="salary" #salary>
+        
+        <mat-error *ngIf="createForm.get('salary').invalid ">
+          Invalid salary
+        </mat-error>
+      </mat-form-field>
+<!--       
+      <mat-form-field>
+          <mat-select placeholder="Employee Rating" formControlName="severity" #severity>
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+            <mat-option value="4">4</mat-option>
+            <mat-option value="5">5</mat-option>
+          </mat-select>
+      </mat-form-field> -->
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="addEmployee(name.value, email.value, department.value, salary.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>
